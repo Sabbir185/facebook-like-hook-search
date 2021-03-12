@@ -21,6 +21,10 @@ function App() {
 
         {/* data load from nested  */}
         <h2>Name : {randomUser.name && randomUser.name.first}</h2>
+
+
+        {/* search meal , call api */}
+        
         
       </header>
     </div>
