@@ -7,8 +7,7 @@ function App() {
   const [thumbLike, setThumbLike] = useState('');
 
   const handleClick = () =>{
-    const thumbAction = thumbLike ? '' : '#3498DB' ;
-    setThumbLike(thumbAction);
+    setThumbLike( thumbLike ? '' : '#3498DB' );
   }
 
   const thumbUpStyle = {
