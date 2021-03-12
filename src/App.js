@@ -6,16 +6,11 @@ import { useState } from 'react';
 function App() {
   const [thumbLike, setThumbLike] = useState('');
 
-  const thumbUpStyle = {
-        fontSize:'100px',
-        color:`${thumbLike}`,
-  }
-
   return (
     <div className="App">
       <header className="App-header">
 
-        <ThumbUpIcon style = {thumbUpStyle} onClick={() => setThumbLike( thumbLike ? '' : '#3498DB' ) }></ThumbUpIcon>
+        <ThumbUpIcon onClick={() => setThumbLike( thumbLike ? '' : '#3498DB')} style={{color:`${thumbLike}`, fontSize:'70px'}} ></ThumbUpIcon>
 
         <img src={logo} className="App-logo" alt="logo" />
         <p>
