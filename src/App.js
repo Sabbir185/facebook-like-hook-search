@@ -1,10 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
   const [thumbLike, setThumbLike] = useState('');
+  const [randomUser, setRandomUser] = useState({}); // one object want to use
+
+  useEffect(()=>{
+    fetch('https://randomuser.me/api/')
+    .then(res => res.json())
+    .then(data => setRandomUser(data.results[0]))
+  },[]);
 
   return (
     <div className="App">
@@ -12,18 +19,9 @@ function App() {
 
         <ThumbUpIcon onClick={() => setThumbLike( thumbLike ? '' : '#3498DB')} style={{color:`${thumbLike}`, fontSize:'70px'}} ></ThumbUpIcon>
 
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {/* data load from nested  */}
+        <h2>Name : {randomUser.name && randomUser.name.first}</h2>
+        
       </header>
     </div>
   );
